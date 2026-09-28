@@ -1,0 +1,22 @@
+# Dependencias
+node_modules/
+
+# Compilación
+dist/
+
+# Variables de entorno
+.env
+.env.*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Registros
+*.log
+
+# Netlify
+.netlify/
+
+# Documentos de trabajo locales
+/instrucciones/

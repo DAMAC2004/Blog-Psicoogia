@@ -1,0 +1,227 @@
+/* ==========================================================================
+   SISTEMA DE TEMAS Y VARIABLES CROMÁTICAS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. PERFIL: RELAJADO (Claro Cálido / Warm Minimal)
+   -------------------------------------------------------------------------- */
+.theme-relajado {
+  /* Fondos generales */
+  --bg-primary: #fdfbf7;
+  --bg-secondary: #f4efe6;
+  --bg-block: #eae3d2;
+  --border-color: #d8ceb9;
+
+  /* Tipografía y Textos */
+  --text-simple: #4a4238;
+  --text-bold: #2c251e;
+  --heading-1: #3b2f2f;
+  --heading-2: #4a3b32;
+  --heading-3: #5a473b;
+  --heading-4: #6a5345;
+  --heading-5: #7a604f;
+
+  /* Interactivos y Acentos */
+  --link-color: #a65b32;
+  --link-hover: #7c3f1d;
+  --btn-bg: #8c6d58;
+  --btn-text: #ffffff;
+  --btn-hover: #735743;
+  --tag-bg: #e2dac9;
+  --tag-text: #594839;
+
+  /* Elementos adicionales de UI / MDX */
+  --code-bg: #eee7d7;
+  --code-text: #6b3a19;
+  --quote-border: #a65b32;
+  --shadow-color: rgba(74, 66, 56, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   2. PERFIL: RELAJADO OSCURO (Warm Dark / Espresso)
+   -------------------------------------------------------------------------- */
+.theme-relajado-oscuro {
+  /* Fondos generales */
+  --bg-primary: #1e1b18;
+  --bg-secondary: #282420;
+  --bg-block: #322d28;
+  --border-color: #443d37;
+
+  /* Tipografía y Textos */
+  --text-simple: #d9d2c9;
+  --text-bold: #f0eae1;
+  --heading-1: #f5ebe6;
+  --heading-2: #ebdcd5;
+  --heading-3: #e0cebe;
+  --heading-4: #d4bfa8;
+  --heading-5: #c8b193;
+
+  /* Interactivos y Acentos */
+  --link-color: #e08b58;
+  --link-hover: #f0a373;
+  --btn-bg: #a66e4e;
+  --btn-text: #1e1b18;
+  --btn-hover: #bd8260;
+  --tag-bg: #3d352e;
+  --tag-text: #d9c5b2;
+
+  /* Elementos adicionales de UI / MDX */
+  --code-bg: #2b2520;
+  --code-text: #e8a87c;
+  --quote-border: #e08b58;
+  --shadow-color: rgba(0, 0, 0, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   3. PERFIL: CONCENTRACIÓN (Claro Técnico / Slate Blue)
+   -------------------------------------------------------------------------- */
+.theme-concentracion {
+  /* Fondos generales */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f1f5f9;
+  --bg-block: #e2e8f0;
+  --border-color: #cbd5e1;
+
+  /* Tipografía y Textos */
+  --text-simple: #334155;
+  --text-bold: #0f172a;
+  --heading-1: #0f172a;
+  --heading-2: #1e293b;
+  --heading-3: #334155;
+  --heading-4: #475569;
+  --heading-5: #64748b;
+
+  /* Interactivos y Acentos */
+  --link-color: #2563eb;
+  --link-hover: #1d4ed8;
+  --btn-bg: #0f172a;
+  --btn-text: #ffffff;
+  --btn-hover: #1e293b;
+  --tag-bg: #e0e7ff;
+  --tag-text: #3730a3;
+
+  /* Elementos adicionales de UI / MDX */
+  --code-bg: #f8fafc;
+  --code-text: #0284c7;
+  --quote-border: #2563eb;
+  --shadow-color: rgba(15, 23, 42, 0.06);
+}
+
+/* --------------------------------------------------------------------------
+   4. PERFIL: CONCENTRACIÓN OSCURO (Dark IDE / Midnight Cyan)
+   -------------------------------------------------------------------------- */
+.theme-concentracion-oscuro {
+  /* Fondos generales */
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-block: #21262d;
+  --border-color: #30363d;
+
+  /* Tipografía y Textos */
+  --text-simple: #c9d1d9;
+  --text-bold: #f0f6fc;
+  --heading-1: #f0f6fc;
+  --heading-2: #e6edf3;
+  --heading-3: #d2dbe5;
+  --heading-4: #8b949e;
+  --heading-5: #6e7681;
+
+  /* Interactivos y Acentos */
+  --link-color: #58a6ff;
+  --link-hover: #79c0ff;
+  --btn-bg: #238636;
+  --btn-text: #ffffff;
+  --btn-hover: #2ea043;
+  --tag-bg: #1f293d;
+  --tag-text: #79c0ff;
+
+  /* Elementos adicionales de UI / MDX */
+  --code-bg: #161b22;
+  --code-text: #39c5cf;
+  --quote-border: #58a6ff;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   APLICACIÓN GLOBAL DE VARIABLES A COMPONENTES
+   ========================================================================== */
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-simple);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Títulos Nivel 1 a 5 */
+h1 { color: var(--heading-1); font-weight: 800; }
+h2 { color: var(--heading-2); font-weight: 700; }
+h3 { color: var(--heading-3); font-weight: 600; }
+h4 { color: var(--heading-4); font-weight: 600; }
+h5 { color: var(--heading-5); font-weight: 500; }
+
+/* Formato de Texto */
+p { color: var(--text-simple); line-height: 1.7; }
+strong, b { color: var(--text-bold); font-weight: 700; }
+
+/* Enlaces */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* Botones */
+button, .btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+button:hover, .btn:hover {
+  background-color: var(--btn-hover);
+}
+
+/* Etiquetas (Tags / Categories) */
+.tag {
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+/* Bloques de Código en línea y MDX */
+code {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* Citas / Blockquotes */
+blockquote {
+  border-left: 4px solid var(--quote-border);
+  background-color: var(--bg-secondary);
+  margin: 1.5rem 0;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0 6px 6px 0;
+}
+
+/* Tarjetas y Bloques MDX */
+.card, .media-block {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
