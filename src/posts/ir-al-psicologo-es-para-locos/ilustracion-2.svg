@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#e9d8c4"/>
+  <path d="M0 380 C180 320 360 430 800 340 L800 500 L0 500Z" fill="#8c6d58" opacity="0.35"/>
+  <path d="M0 420 C220 370 420 470 800 400 L800 500 L0 500Z" fill="#c98a5e" opacity="0.4"/>
+  <!-- Sol que asoma -->
+  <circle cx="620" cy="140" r="80" fill="#c98a5e" opacity="0.85"/>
+  <circle cx="620" cy="140" r="120" fill="none" stroke="#c98a5e" stroke-width="3" opacity="0.35"/>
+  <!-- Grupo de personas diversas -->
+  <g>
+    <circle cx="170" cy="230" r="34" fill="#8c6d58"/>
+    <path d="M115 400 C115 310 140 280 170 280 C200 280 225 310 225 400Z" fill="#8c6d58"/>
+    <circle cx="290" cy="215" r="38" fill="#c98a5e"/>
+    <path d="M230 400 C230 300 255 268 290 268 C325 268 350 300 350 400Z" fill="#c98a5e"/>
+    <circle cx="410" cy="240" r="30" fill="#8c6d58" opacity="0.8"/>
+    <path d="M360 400 C360 320 380 285 410 285 C440 285 460 320 460 400Z" fill="#8c6d58" opacity="0.8"/>
+    <circle cx="520" cy="225" r="35" fill="#c98a5e" opacity="0.9"/>
+    <path d="M465 400 C465 310 490 275 520 275 C550 275 575 310 575 400Z" fill="#c98a5e" opacity="0.9"/>
+  </g>
+</svg>

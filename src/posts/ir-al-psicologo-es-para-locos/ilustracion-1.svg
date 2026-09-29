@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#e9d8c4"/>
+  <circle cx="470" cy="120" r="170" fill="#c98a5e" opacity="0.35"/>
+  <path d="M0 470 C140 410 300 520 600 440 L600 600 L0 600Z" fill="#8c6d58" opacity="0.3"/>
+  <!-- Persona que habla -->
+  <circle cx="200" cy="230" r="58" fill="#8c6d58"/>
+  <path d="M110 470 C110 350 150 310 200 310 C250 310 290 350 290 470Z" fill="#8c6d58"/>
+  <!-- Persona que escucha -->
+  <circle cx="410" cy="250" r="54" fill="#c98a5e"/>
+  <path d="M325 470 C325 360 365 325 410 325 C455 325 495 360 495 470Z" fill="#c98a5e"/>
+  <!-- Burbujas de conversación -->
+  <path d="M250 120 h110 a26 26 0 0 1 26 26 v34 a26 26 0 0 1 -26 26 h-66 l-26 24 v-24 h-18 a26 26 0 0 1 -26 -26 v-34 a26 26 0 0 1 26 -26Z" fill="#fdfbf7" opacity="0.9"/>
+  <circle cx="280" cy="163" r="8" fill="#c98a5e"/>
+  <circle cx="306" cy="163" r="8" fill="#c98a5e"/>
+  <circle cx="332" cy="163" r="8" fill="#c98a5e"/>
+</svg>
