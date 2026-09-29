@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#e3e8d8"/>
+  <circle cx="450" cy="140" r="140" fill="#9aae7c" opacity="0.4"/>
+  <path d="M0 480 C150 430 320 530 600 460 L600 600 L0 600Z" fill="#6b7f52" opacity="0.35"/>
+  <!-- Maceta -->
+  <path d="M220 400 L380 400 L360 520 L240 520Z" fill="#6b7f52"/>
+  <rect x="205" y="385" width="190" height="28" rx="10" fill="#6b7f52"/>
+  <!-- Tallo y hojas que crecen poco a poco -->
+  <path d="M300 385 C300 320 296 260 304 180" fill="none" stroke="#6b7f52" stroke-width="8" stroke-linecap="round"/>
+  <path d="M300 340 C250 330 220 300 215 260 C260 262 292 290 300 340Z" fill="#9aae7c"/>
+  <path d="M302 290 C350 282 380 250 385 212 C340 212 308 240 302 290Z" fill="#9aae7c"/>
+  <path d="M303 225 C270 215 252 190 250 162 C282 165 300 190 303 225Z" fill="#9aae7c" opacity="0.85"/>
+  <circle cx="305" cy="170" r="14" fill="#6b7f52"/>
+</svg>

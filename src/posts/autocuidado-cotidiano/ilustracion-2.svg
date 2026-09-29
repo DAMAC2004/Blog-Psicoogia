@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#e3e8d8"/>
+  <circle cx="160" cy="120" r="70" fill="#9aae7c" opacity="0.7"/>
+  <path d="M0 330 C160 280 330 380 520 320 C640 282 720 300 800 290 L800 500 L0 500Z" fill="#9aae7c" opacity="0.45"/>
+  <path d="M0 400 C200 360 420 450 800 380 L800 500 L0 500Z" fill="#6b7f52" opacity="0.5"/>
+  <!-- Persona en calma sentada -->
+  <circle cx="520" cy="200" r="32" fill="#6b7f52"/>
+  <path d="M470 330 C470 270 490 245 520 245 C550 245 570 270 570 330Z" fill="#6b7f52"/>
+  <path d="M440 335 C470 315 570 315 600 335 C570 350 470 350 440 335Z" fill="#6b7f52"/>
+  <!-- Pequeños círculos como momentos del día -->
+  <circle cx="300" cy="230" r="14" fill="#6b7f52" opacity="0.6"/>
+  <circle cx="345" cy="205" r="10" fill="#6b7f52" opacity="0.5"/>
+  <circle cx="385" cy="190" r="7" fill="#6b7f52" opacity="0.4"/>
+  <circle cx="650" cy="150" r="10" fill="#9aae7c"/>
+  <circle cx="690" cy="120" r="16" fill="#9aae7c" opacity="0.8"/>
+</svg>
