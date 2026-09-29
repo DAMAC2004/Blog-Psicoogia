@@ -136,3 +136,17 @@ h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; line-height: 1.2; margin: 
   .post-row-image img, .post-row-placeholder { height: 190px; min-height: 0; }
   .post-row-body { padding: 18px; }
 }
+
+/* ---------- Paginación ---------- */
+.pagination {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 6px; margin-top: 32px;
+}
+.pagination .chip { min-width: 40px; }
+.pagination .chip:disabled { opacity: 0.45; cursor: not-allowed; background: transparent; }
+.pagination-gap { padding: 0 4px; color: var(--heading-5); }
+.pagination-summary { text-align: center; margin: 12px 0 0; font-size: 0.85rem; color: var(--heading-5); }
+
+@media (max-width: 480px) {
+  .pagination-label { display: none; }
+}
