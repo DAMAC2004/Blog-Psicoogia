@@ -1,5 +1,6 @@
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher.jsx';
+import { SITE } from '../config/site.js';
 
 export default function Layout() {
   return (
@@ -8,7 +9,7 @@ export default function Layout() {
         <div className="container header-inner">
           <Link to="/home" className="brand">
             <span className="brand-mark" aria-hidden="true">✿</span>
-            <span className="brand-name">Mente Abierta</span>
+            <span className="brand-name">{SITE.name}</span>
           </Link>
           <nav className="main-nav" aria-label="Principal">
             <NavLink to="/home">Blog</NavLink>
@@ -26,8 +27,8 @@ export default function Layout() {
       <footer className="site-footer" id="contacto">
         <div className="container footer-inner">
           <div>
-            <p className="brand-name">Mente Abierta</p>
-            <p className="muted">Un espacio de confianza y libre de juicios.</p>
+            <p className="brand-name">{SITE.name}</p>
+            <p className="muted">{SITE.tagline}</p>
           </div>
           <p className="muted small">© {new Date().getFullYear()} · Blog de psicología</p>
         </div>
