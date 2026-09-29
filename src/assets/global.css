@@ -119,6 +119,8 @@ h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; line-height: 1.2; margin: 
 .site-footer { border-top: 1px solid var(--border-color); background: var(--bg-secondary); padding: 28px 0; }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 .footer-inner p { margin: 4px 0; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.footer-nav a { color: var(--text-simple); font-weight: 500; }
 
 .placeholder-page { padding: 48px 16px; display: flex; flex-direction: column; gap: 16px; }
 .notice { background: var(--bg-block); padding: 14px 18px; border-radius: 8px; }

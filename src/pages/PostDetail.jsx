@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getPost, formatDate } from '../lib/posts.js';
+import { useDocumentTitle } from '../lib/useDocumentTitle.js';
 import { initials } from '../components/PostCard.jsx';
 import PostContent from '../components/PostContent.jsx';
 
@@ -13,14 +13,7 @@ function readingTime(body) {
 export default function PostDetail() {
   const { id } = useParams();
   const post = getPost(id);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    if (!post) return;
-    const previousTitle = document.title;
-    document.title = post.title;
-    return () => { document.title = previousTitle; };
-  }, [post]);
+  useDocumentTitle(post ? post.title : 'Entrada no encontrada');
 
   if (!post) {
     return (

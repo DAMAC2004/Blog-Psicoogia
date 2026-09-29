@@ -2,10 +2,12 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PostCard from '../components/PostCard.jsx';
 import { posts } from '../lib/posts.js';
+import { useDocumentTitle } from '../lib/useDocumentTitle.js';
 
 const normalize = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
 export default function Home() {
+  useDocumentTitle('Blog');
   const [query, setQuery] = useState('');
   const [activeTag, setActiveTag] = useState(null);
 

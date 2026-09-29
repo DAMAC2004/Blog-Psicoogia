@@ -1,8 +1,22 @@
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher.jsx';
 import { SITE } from '../config/site.js';
 
+const NAV_LINKS = [
+  { to: '/home', label: 'Blog' },
+  { to: '/sobre-nosotros', label: 'Sobre nosotros' },
+  { to: '/contacto', label: 'Contacto' },
+];
+
 export default function Layout() {
+  const { pathname } = useLocation();
+
+  // Al cambiar de ruta la página vuelve arriba (los cambios de ?pagina, ?tema o ?q no cuentan).
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="site">
       <header className="site-header">
@@ -12,9 +26,7 @@ export default function Layout() {
             <span className="brand-name">{SITE.name}</span>
           </Link>
           <nav className="main-nav" aria-label="Principal">
-            <NavLink to="/home">Blog</NavLink>
-            <a href="#sobre">Sobre nosotros</a>
-            <a href="#contacto">Contacto</a>
+            {NAV_LINKS.map((link) => <NavLink key={link.to} to={link.to}>{link.label}</NavLink>)}
           </nav>
           <ThemeSwitcher />
         </div>
@@ -24,12 +36,15 @@ export default function Layout() {
         <Outlet />
       </main>
 
-      <footer className="site-footer" id="contacto">
+      <footer className="site-footer">
         <div className="container footer-inner">
           <div>
             <p className="brand-name">{SITE.name}</p>
             <p className="muted">{SITE.tagline}</p>
           </div>
+          <nav className="footer-nav" aria-label="Pie de página">
+            {NAV_LINKS.map((link) => <Link key={link.to} to={link.to}>{link.label}</Link>)}
+          </nav>
           <p className="muted small">© {new Date().getFullYear()} · Blog de psicología</p>
         </div>
       </footer>
