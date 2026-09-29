@@ -62,6 +62,3 @@ Si un día no cumples con lo que te propusiste, no hace falta castigarte ni empe
 
 Empieza con algo pequeño. Tal vez hoy sea tomar un vaso de agua, salir a caminar diez minutos o apagar la pantalla un poco antes. Lo importante no es la perfección, sino la dirección.
 
----
-
-> **Este artículo es informativo y no sustituye la atención de un profesional de la salud mental.** Si estás pasando por un momento difícil, busca apoyo. En México puedes llamar gratis a la **Línea de la Vida: 800 911 2000**, disponible las 24 horas.

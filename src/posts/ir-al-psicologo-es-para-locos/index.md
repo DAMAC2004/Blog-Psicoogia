@@ -83,6 +83,3 @@ Si tú también tienes un número guardado, o estás pensando en buscar uno, dat
 - [¿Ir al psicólogo es para locos? — Psicólogo Efraín MC](https://psicologoefrainmc.com/ir-al-psicologo-es-para-locos/)
 - [La psicología no sirve para nada, es para los locos — Psicólogos Aldaia](https://www.psicologosaldaia.com/la-psicologia-no-sirve-nada-los-locos/)
 
----
-
-> **Este artículo es informativo y no sustituye la atención de un profesional de la salud mental.** Si estás pasando por un momento difícil, busca apoyo. En México puedes llamar gratis a la **Línea de la Vida: 800 911 2000**, disponible las 24 horas.

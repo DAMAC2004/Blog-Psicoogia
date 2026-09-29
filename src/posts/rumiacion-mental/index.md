@@ -82,6 +82,3 @@ Todas las personas rumiamos de vez en cuando, sobre todo en épocas de estrés. 
 
 Una psicóloga o un psicólogo puede ayudarte a entender qué alimenta ese bucle y a practicar herramientas adaptadas a ti. Pedir ayuda no significa que hayas fallado en controlarlo por tu cuenta; significa que mereces sentirte con más calma.
 
----
-
-> **Este artículo es informativo y no sustituye la atención de un profesional de la salud mental.** Si estás pasando por un momento difícil, busca apoyo. En México puedes llamar gratis a la **Línea de la Vida: 800 911 2000**, disponible las 24 horas.

@@ -72,6 +72,3 @@ Sin embargo, si tus límites se ignoran una y otra vez, se ridiculizan o se cast
 
 **Un aviso importante:** si en tu relación sientes miedo, hay control sobre lo que haces, con quién hablas o cómo gastas tu dinero, o existe cualquier forma de violencia, lo prioritario es tu seguridad. Busca apoyo profesional y acércate a tus redes de confianza. No tienes que atravesarlo sin compañía.
 
----
-
-> **Este artículo es informativo y no sustituye la atención de un profesional de la salud mental.** Si estás pasando por un momento difícil, busca apoyo. En México puedes llamar gratis a la **Línea de la Vida: 800 911 2000**, disponible las 24 horas.
