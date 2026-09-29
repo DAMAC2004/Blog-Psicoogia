@@ -114,10 +114,7 @@ h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; line-height: 1.2; margin: 
 .author { font-weight: 600; color: var(--text-bold); }
 .empty { text-align: center; padding: 40px 0; }
 
-/* ---------- Cierre y pie ---------- */
-.closing { padding: 40px 0 64px; }
-.closing-inner { max-width: 720px; text-align: center; }
-.closing blockquote { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 1.15rem; text-align: left; }
+/* ---------- Pie ---------- */
 
 .site-footer { border-top: 1px solid var(--border-color); background: var(--bg-secondary); padding: 28px 0; }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }

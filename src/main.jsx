@@ -5,6 +5,7 @@ import App from './App.jsx';
 import './assets/themes.css';
 import './assets/global.css';
 import './assets/post.css';
+import './assets/pages.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

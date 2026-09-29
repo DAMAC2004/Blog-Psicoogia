@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Páginas propias (Sobre nosotros, Contacto). Los colores vienen de themes.css.
+   ========================================================================== */
+.page-content { padding: 48px 16px 64px; display: flex; flex-direction: column; gap: 40px; }
+.page-content h2 { font-size: 1.6rem; margin-bottom: 12px; }
+.page-content p { margin: 0 0 0.8em; }
+.page-list { margin: 0; padding-left: 1.3em; line-height: 1.8; }
+.page-list li::marker { color: var(--link-color); }
+
+.values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.value-card { border-radius: 14px; padding: 20px 22px; }
+.value-card h3 { font-size: 1.2rem; margin-bottom: 6px; color: var(--link-color); }
+.value-card p { margin: 0; }
+
+.about-closing { max-width: 720px; text-align: center; margin: 0 auto; }
+.about-closing blockquote {
+  font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 1.15rem; text-align: left;
+}
+
+.page-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.btn { display: inline-block; text-decoration: none; }
+.btn:hover { color: var(--btn-text); text-decoration: none; }
+.btn-secondary {
+  background: transparent; color: var(--link-color);
+  border: 1px solid var(--border-color);
+}
+.btn-secondary:hover { background: var(--tag-bg); color: var(--link-hover); }
+
+.contact-card { border-radius: 14px; padding: 24px; }
+.contact-card h2 { font-size: 1.35rem; }
+.contact-card .btn { margin-top: 4px; }
+.social-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 20px; }
+
+.crisis-notice {
+  background: var(--bg-block);
+  border-left: 4px solid var(--quote-border);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+}
+.crisis-notice p { margin: 0; }
+
+/* Enlace hacia "Sobre nosotros" desde el home */
+.home-about { padding: 32px 0 64px; }
+.home-about-inner { max-width: 720px; text-align: center; }
+
+@media (max-width: 720px) {
+  .page-content { padding-top: 32px; gap: 32px; }
+  .values-grid { grid-template-columns: 1fr; }
+}

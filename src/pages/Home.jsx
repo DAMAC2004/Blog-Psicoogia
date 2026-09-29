@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import PostCard from '../components/PostCard.jsx';
 import { posts } from '../lib/posts.js';
 
@@ -78,14 +79,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="closing" id="sobre">
-        <div className="container closing-inner">
+      <section className="home-about">
+        <div className="container home-about-inner">
           <p>
-            Este blog no solo busca que aprendas a <strong>gestionar la vida</strong> en muchos
-            aspectos, sino visibilizar temas que todavía cargan con estigma social.
+            Escribimos para acercar la psicología a la vida diaria y derribar el estigma
+            alrededor de la salud mental. <Link to="/sobre-nosotros">Conoce más sobre nosotros →</Link>
           </p>
-          <p>Léenos sin juzgarte ni castigarte. <strong>No estás sola, no estás solo.</strong></p>
-          <blockquote>El autoconocimiento es el primer paso para aceptar, perdonar y sanar.</blockquote>
         </div>
       </section>
     </>
