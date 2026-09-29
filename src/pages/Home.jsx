@@ -1,6 +1,8 @@
-import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useMemo, useRef } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import PostCard from '../components/PostCard.jsx';
+import Pagination from '../components/Pagination.jsx';
+import { SITE } from '../config/site.js';
 import { posts } from '../lib/posts.js';
 import { useDocumentTitle } from '../lib/useDocumentTitle.js';
 
@@ -8,8 +10,12 @@ const normalize = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(
 
 export default function Home() {
   useDocumentTitle('Blog');
-  const [query, setQuery] = useState('');
-  const [activeTag, setActiveTag] = useState(null);
+  // El estado del listado vive en la URL: ?q=texto&tema=Tema&pagina=2
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('q') ?? '';
+  const activeTag = searchParams.get('tema');
+  const rawPage = searchParams.get('pagina');
+  const headingRef = useRef(null);
 
   const allTags = useMemo(
     () => [...new Set(posts.flatMap((p) => p.tags))].sort((a, b) => a.localeCompare(b)),
@@ -22,6 +28,55 @@ export default function Home() {
     const matchesQuery = !q || normalize(`${p.title} ${p.summary} ${p.tags.join(' ')}`).includes(q);
     return matchesTag && matchesQuery;
   });
+
+  // Primero se filtra y después se pagina el resultado.
+  const perPage = SITE.postsPerPage;
+  const totalPages = Math.max(1, Math.ceil(visible.length / perPage));
+  const requestedPage = Number(rawPage);
+  const currentPage = Number.isInteger(requestedPage)
+    ? Math.min(Math.max(requestedPage, 1), totalPages)
+    : 1;
+  const start = (currentPage - 1) * perPage;
+  const pageItems = visible.slice(start, start + perPage);
+
+  // Actualiza parámetros de la URL; los valores vacíos se quitan.
+  const updateParams = (changes, options) => {
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      for (const [key, value] of Object.entries(changes)) {
+        if (value === null || value === '' || value === 1) next.delete(key);
+        else next.set(key, String(value));
+      }
+      return next;
+    }, options);
+  };
+
+  // Si ?pagina no es válida o se sale del rango, se corrige la URL con la página más cercana.
+  useEffect(() => {
+    if (rawPage !== null && rawPage !== String(currentPage)) {
+      updateParams({ pagina: currentPage }, { replace: true });
+    }
+  }, [rawPage, currentPage]);
+
+  // Cambiar la búsqueda o el tema regresa a la página 1.
+  const changeQuery = (value) => updateParams({ q: value, pagina: null }, { replace: true });
+  const changeTag = (tag) => updateParams({ tema: tag, pagina: null });
+
+  const changePage = (page) => {
+    updateParams({ pagina: page });
+    // Desplaza suavemente al título del listado, descontando la cabecera fija.
+    requestAnimationFrame(() => {
+      const heading = headingRef.current;
+      if (!heading) return;
+      const headerHeight = document.querySelector('.site-header')?.offsetHeight ?? 0;
+      const top = heading.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  };
+
+  const summary = visible.length === 1
+    ? 'Mostrando 1 artículo'
+    : `Mostrando ${start + 1}–${start + pageItems.length} de ${visible.length} artículos`;
 
   return (
     <>
@@ -40,13 +95,13 @@ export default function Home() {
 
       <section className="container posts-section" aria-labelledby="latest">
         <div className="posts-header">
-          <h2 id="latest">Últimos artículos del blog</h2>
+          <h2 id="latest" ref={headingRef}>Últimos artículos del blog</h2>
           <input
             type="search"
             className="search"
             placeholder="Buscar un artículo…"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => changeQuery(e.target.value)}
             aria-label="Buscar artículos"
           />
         </div>
@@ -56,7 +111,7 @@ export default function Home() {
             <button
               type="button"
               className={`chip ${activeTag === null ? 'is-active' : ''}`}
-              onClick={() => setActiveTag(null)}
+              onClick={() => changeTag(null)}
             >
               Todos
             </button>
@@ -65,7 +120,7 @@ export default function Home() {
                 type="button"
                 key={tag}
                 className={`chip ${activeTag === tag ? 'is-active' : ''}`}
-                onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+                onClick={() => changeTag(activeTag === tag ? null : tag)}
               >
                 {tag}
               </button>
@@ -74,11 +129,14 @@ export default function Home() {
         )}
 
         <div className="post-list">
-          {visible.map((post) => <PostCard key={post.id} post={post} />)}
+          {pageItems.map((post) => <PostCard key={post.id} post={post} />)}
           {visible.length === 0 && (
             <p className="empty">No encontramos artículos con ese criterio.</p>
           )}
         </div>
+
+        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={changePage} />
+        {visible.length > 0 && <p className="pagination-summary">{summary}</p>}
       </section>
 
       <section className="home-about">
