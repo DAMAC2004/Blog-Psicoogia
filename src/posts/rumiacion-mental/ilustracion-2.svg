@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#dfe4e8"/>
+  <!-- Bucle enredado a la izquierda -->
+  <path d="M90 250 C90 120 260 120 250 230 C240 340 110 330 140 230 C170 130 330 160 300 260 C270 360 150 300 200 220 C240 160 330 200 330 250" fill="none" stroke="#4f6d82" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+  <!-- Camino que se abre hacia la derecha -->
+  <path d="M330 250 C420 250 460 200 540 200 C620 200 660 260 760 240" fill="none" stroke="#7f9bb0" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="680" cy="130" r="70" fill="#7f9bb0" opacity="0.5"/>
+  <path d="M0 400 C200 350 400 450 800 380 L800 500 L0 500Z" fill="#7f9bb0" opacity="0.35"/>
+  <path d="M0 440 C240 400 480 490 800 430 L800 500 L0 500Z" fill="#4f6d82" opacity="0.35"/>
+</svg>
