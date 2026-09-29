@@ -1,10 +1,26 @@
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getPost, formatDate } from '../lib/posts.js';
+import { initials } from '../components/PostCard.jsx';
+import PostContent from '../components/PostContent.jsx';
 
-// Vista provisional: el renderizado completo del .md se construye en la siguiente fase.
+// Tiempo de lectura estimado a 200 palabras por minuto.
+function readingTime(body) {
+  const words = body.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
 export default function PostDetail() {
   const { id } = useParams();
   const post = getPost(id);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (!post) return;
+    const previousTitle = document.title;
+    document.title = post.title;
+    return () => { document.title = previousTitle; };
+  }, [post]);
 
   if (!post) {
     return (
@@ -16,11 +32,35 @@ export default function PostDetail() {
   }
 
   return (
-    <div className="container narrow placeholder-page">
-      <Link to="/home">← Volver al blog</Link>
-      <h1>{post.title}</h1>
-      <p className="muted">{post.author} · {formatDate(post.date)}</p>
-      <p className="notice">La vista completa de la entrada se construirá en la siguiente fase.</p>
+    <div className="container narrow post-page">
+      <Link to="/home" className="back-link">← Volver al blog</Link>
+
+      <header className="post-header">
+        {post.tags.length > 0 && (
+          <ul className="tag-list" aria-label="Temas">
+            {post.tags.map((tag) => <li key={tag} className="tag">{tag}</li>)}
+          </ul>
+        )}
+
+        <h1 className="post-title">{post.title}</h1>
+
+        <div className="post-meta">
+          <span className="avatar" aria-hidden="true">{initials(post.author)}</span>
+          <span className="author">{post.author}</span>
+          <span className="dot" aria-hidden="true">·</span>
+          <time dateTime={post.date}>{formatDate(post.date)}</time>
+          <span className="dot" aria-hidden="true">·</span>
+          <span>{readingTime(post.body)} min de lectura</span>
+        </div>
+
+        {/* TODO fase contador: <PostViews id={post.id} /> */}
+      </header>
+
+      {post.cover && <img className="post-cover" src={post.cover} alt="" />}
+
+      <article className="post-body"><PostContent post={post} /></article>
+
+      <Link to="/home" className="back-link">← Volver al blog</Link>
     </div>
   );
 }
