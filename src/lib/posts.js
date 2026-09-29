@@ -39,6 +39,8 @@ export const posts = Object.entries(markdownFiles)
       summary: data.summary ?? '',
       cover: resolveImage(id, data.coverImage),
       body,
+      // El lector de frontmatter devuelve texto: solo "false" oculta el aviso.
+      healthNotice: data.healthNotice !== 'false',
       resolveImage: (rel) => resolveImage(id, rel),
     };
   })

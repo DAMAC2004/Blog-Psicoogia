@@ -108,3 +108,14 @@
   .media-block, .media-block.media-right { grid-template-columns: 1fr; gap: 18px; padding: 18px; }
   .media-block.media-right .media-image { order: 0; }
 }
+
+/* ---------- Aviso de salud ---------- */
+.health-notice {
+  margin-top: 24px;
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--quote-border);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+  font-size: 0.95rem;
+}
+.health-notice p { margin: 0; line-height: 1.7; }

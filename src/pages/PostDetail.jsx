@@ -3,6 +3,7 @@ import { getPost, formatDate } from '../lib/posts.js';
 import { useDocumentTitle } from '../lib/useDocumentTitle.js';
 import { initials } from '../components/PostCard.jsx';
 import PostContent from '../components/PostContent.jsx';
+import HealthNotice from '../components/HealthNotice.jsx';
 
 // Tiempo de lectura estimado a 200 palabras por minuto.
 function readingTime(body) {
@@ -52,6 +53,8 @@ export default function PostDetail() {
       {post.cover && <img className="post-cover" src={post.cover} alt="" />}
 
       <article className="post-body"><PostContent post={post} /></article>
+
+      {post.healthNotice && <HealthNotice />}
 
       <Link to="/home" className="back-link">← Volver al blog</Link>
     </div>
