@@ -148,5 +148,7 @@ h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; line-height: 1.2; margin: 
 .pagination-summary { text-align: center; margin: 12px 0 0; font-size: 0.85rem; color: var(--heading-5); }
 
 @media (max-width: 480px) {
+  .pagination { gap: 4px; }
+  .pagination .chip { min-width: 34px; padding: 6px 8px; }
   .pagination-label { display: none; }
 }
