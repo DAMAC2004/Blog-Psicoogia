@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#f0dcdc"/>
+  <circle cx="130" cy="120" r="150" fill="#c77d7d" opacity="0.3"/>
+  <path d="M0 470 C160 420 330 520 600 450 L600 600 L0 600Z" fill="#94545a" opacity="0.3"/>
+  <!-- Persona con las manos sobre el pecho -->
+  <circle cx="300" cy="200" r="62" fill="#94545a"/>
+  <path d="M190 500 C190 360 235 300 300 300 C365 300 410 360 410 500Z" fill="#94545a"/>
+  <!-- Corazón sostenido -->
+  <path d="M300 420 C255 385 245 350 268 335 C284 325 298 335 300 348 C302 335 316 325 332 335 C355 350 345 385 300 420Z" fill="#f0dcdc"/>
+  <!-- Ondas suaves de emoción -->
+  <path d="M430 230 C460 250 460 290 430 310" fill="none" stroke="#c77d7d" stroke-width="6" stroke-linecap="round"/>
+  <path d="M460 210 C505 245 505 295 460 330" fill="none" stroke="#c77d7d" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+</svg>

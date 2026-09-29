@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f0dcdc"/>
+  <path d="M0 390 C200 340 420 440 800 370 L800 500 L0 500Z" fill="#c77d7d" opacity="0.4"/>
+  <!-- Dos círculos que se tocan sin fundirse: cada quien con su espacio -->
+  <circle cx="320" cy="230" r="140" fill="#c77d7d" opacity="0.8"/>
+  <circle cx="480" cy="230" r="140" fill="#94545a" opacity="0.7"/>
+  <circle cx="320" cy="230" r="140" fill="none" stroke="#f0dcdc" stroke-width="6"/>
+  <circle cx="480" cy="230" r="140" fill="none" stroke="#f0dcdc" stroke-width="6"/>
+  <circle cx="120" cy="100" r="30" fill="#94545a" opacity="0.5"/>
+  <circle cx="690" cy="110" r="44" fill="#c77d7d" opacity="0.6"/>
+</svg>
