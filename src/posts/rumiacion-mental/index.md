@@ -2,7 +2,7 @@
 title: "Rumiación mental: cómo frenar los pensamientos repetitivos"
 date: "2026-09-15"
 author: "Laura Méndez"
-tags: ["Salud mental", "Ansiedad"]
+tags: ["Salud mental", "Estrés y Ansiedad"]
 summary: "Qué es la rumiación, por qué nos atrapa y algunas estrategias sencillas para salir del bucle de pensamientos repetitivos."
 coverImage: "./portada.svg"
 ---
