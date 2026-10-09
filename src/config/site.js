@@ -9,5 +9,16 @@ export const SITE = {
     // { label: 'Instagram', url: 'https://instagram.com/...' },
   ],
   postsPerPage: 10,
+  // Etiquetas oficiales. Para crear una nueva, agrégala aquí y documéntala en docs/02.
+  tags: [
+    'Aprendizaje',
+    'Bienestar',
+    'Comunicación',
+    'Estigma',
+    'Estrés y Ansiedad',
+    'Hábitos',
+    'Relaciones de pareja',
+    'Salud mental',
+  ],
   crisisLine: { name: 'Línea de la Vida', phone: '800 911 2000', hours: 'las 24 horas' },
 };

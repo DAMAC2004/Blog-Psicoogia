@@ -1,4 +1,5 @@
 import { parseFrontmatter } from './frontmatter.js';
+import { SITE } from '../config/site.js';
 
 // Cada entrada vive en src/posts/<id>/index.md junto con sus imágenes.
 // Vite lee todos los .md y todas las imágenes en tiempo de compilación.
@@ -45,6 +46,17 @@ export const posts = Object.entries(markdownFiles)
     };
   })
   .sort((a, b) => b.date.localeCompare(a.date));
+
+// En desarrollo avisa si una entrada usa una etiqueta fuera del catálogo oficial (SITE.tags).
+if (import.meta.env.DEV) {
+  for (const post of posts) {
+    for (const tag of post.tags) {
+      if (!SITE.tags.includes(tag)) {
+        console.warn(`[etiquetas] La entrada "${post.id}" usa una etiqueta fuera del catálogo: "${tag}"`);
+      }
+    }
+  }
+}
 
 export function getPost(id) {
   return posts.find((p) => p.id === id);
