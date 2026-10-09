@@ -45,7 +45,7 @@ export default function Layout() {
           <nav className="footer-nav" aria-label="Pie de página">
             {NAV_LINKS.map((link) => <Link key={link.to} to={link.to}>{link.label}</Link>)}
           </nav>
-          <p className="muted small">© {new Date().getFullYear()} · Blog de psicología</p>
+          <p className="muted small">© {new Date().getFullYear()} · {SITE.blogName}</p>
         </div>
       </footer>
     </div>

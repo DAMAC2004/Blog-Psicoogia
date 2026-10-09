@@ -9,7 +9,7 @@ import { useDocumentTitle } from '../lib/useDocumentTitle.js';
 const normalize = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
 export default function Home() {
-  useDocumentTitle('Blog');
+  useDocumentTitle(SITE.blogName);
   // El estado del listado vive en la URL: ?q=texto&tema=Tema&pagina=2
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('q') ?? '';
@@ -82,13 +82,13 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="container hero-inner">
-          <h1>Blog de psicología</h1>
+          <h1>{SITE.blogName}</h1>
           <p className="hero-values">
             <span>Conocimiento.</span> <span>Bienestar.</span> <span>Comprensión.</span> <span>Ayuda.</span>
           </p>
           <p className="hero-intro">
-            Bienvenida y bienvenido a este rincón para <strong>mirar hacia dentro</strong>,
-            entender lo que sentimos y derribar los estigmas que aún rodean a la salud mental.
+            Bienvenida y bienvenido a este rincón para <strong>comprender lo que sentimos</strong> y
+            derribar los estigmas que aún rodean a la salud mental.
           </p>
         </div>
       </section>

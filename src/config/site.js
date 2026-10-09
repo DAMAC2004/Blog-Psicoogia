@@ -1,6 +1,7 @@
 // Datos generales del sitio en un solo lugar, para editarlos sin tocar componentes.
 export const SITE = {
   name: 'Mente Abierta',
+  blogName: 'Psicoblog',
   tagline: 'Un espacio de confianza y libre de juicios.',
   email: 'contacto@ejemplo.com',        // PENDIENTE: correo real
   social: [
