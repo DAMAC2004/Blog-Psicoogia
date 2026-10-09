@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
+import PsychologistCard from '../components/PsychologistCard.jsx';
 import { SITE } from '../config/site.js';
+import { team } from '../lib/team.js';
 import { useDocumentTitle } from '../lib/useDocumentTitle.js';
 
 const VALUES = [
@@ -24,6 +26,28 @@ export default function About() {
       </section>
 
       <div className="container narrow page-content">
+        <section className="team-section" aria-labelledby="equipo">
+          <div className="team-intro">
+            <h2 id="equipo">Nuestro equipo de psicología</h2>
+            <p>
+              Detrás de {SITE.name} hay un equipo de profesionales de la psicología comprometido con
+              acercar la salud mental a la vida cotidiana. Queremos que encuentres aquí información
+              clara, cercana y libre de juicios.
+            </p>
+            <p>
+              Cada persona del equipo aporta su experiencia y su mirada para acompañarte a comprender
+              lo que sientes y a dar el primer paso cuando necesites apoyo.
+            </p>
+          </div>
+          {team.length > 0 && (
+            <div className="team-list">
+              {team.map((persona) => (
+                <PsychologistCard key={persona.id} persona={persona} />
+              ))}
+            </div>
+          )}
+        </section>
+
         <section>
           <h2>Quiénes somos</h2>
           <p>

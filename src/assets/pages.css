@@ -12,6 +12,21 @@
 .value-card h3 { font-size: 1.2rem; margin-bottom: 6px; color: var(--link-color); }
 .value-card p { margin: 0; }
 
+/* Equipo de psicología (Sobre nosotros) */
+.team-intro { max-width: 650px; margin: 0 auto; text-align: center; }
+.team-list { display: flex; flex-direction: column; gap: 20px; margin-top: 28px; }
+.psychologist-card {
+  display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center;
+  border-radius: 14px; padding: 20px;
+}
+.psychologist-photo {
+  width: 120px; height: 120px; border-radius: 50%; object-fit: cover; display: block;
+}
+.psychologist-card .avatar.psychologist-photo { display: grid; font-size: 2rem; }
+.psychologist-info { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.psychologist-info h3 { font-family: 'Fraunces', Georgia, serif; font-size: 1.25rem; color: var(--heading-2); }
+.page-content .psychologist-grade { margin: 0 0 4px; color: var(--heading-5); }
+
 .about-closing { max-width: 720px; text-align: center; margin: 0 auto; }
 .about-closing blockquote {
   font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 1.15rem; text-align: left;
@@ -50,4 +65,10 @@
   .page-content { padding-top: 32px; gap: 32px; }
   .values-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .psychologist-card { gap: 14px; padding: 16px; }
+  .psychologist-photo { width: 80px; height: 80px; }
+  .psychologist-card .avatar.psychologist-photo { font-size: 1.4rem; }
 }
