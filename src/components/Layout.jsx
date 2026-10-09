@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher.jsx';
+import PsiLogo from './PsiLogo.jsx';
 import { SITE } from '../config/site.js';
 
 const NAV_LINKS = [
@@ -22,7 +23,7 @@ export default function Layout() {
       <header className="site-header">
         <div className="container header-inner">
           <Link to="/home" className="brand">
-            <span className="brand-mark" aria-hidden="true">✿</span>
+            <PsiLogo className="brand-mark" aria-hidden="true" />
             <span className="brand-name">{SITE.name}</span>
           </Link>
           <nav className="main-nav" aria-label="Principal">
@@ -39,7 +40,10 @@ export default function Layout() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <div>
-            <p className="brand-name">{SITE.name}</p>
+            <p className="footer-brand">
+              <PsiLogo size={20} className="brand-mark" aria-hidden="true" />
+              <span className="brand-name">{SITE.name}</span>
+            </p>
             <p className="muted">{SITE.tagline}</p>
           </div>
           <nav className="footer-nav" aria-label="Pie de página">
