@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Avatar provisional y abstracto: reemplazar por la foto real. -->
+  <defs>
+    <clipPath id="circulo"><circle cx="200" cy="200" r="200"/></clipPath>
+  </defs>
+  <g clip-path="url(#circulo)">
+    <rect width="400" height="400" fill="#dfe4e8"/>
+    <circle cx="300" cy="90" r="110" fill="#7f9bb0" opacity="0.45"/>
+    <circle cx="200" cy="160" r="70" fill="#4f6d82"/>
+    <path d="M60 400 C60 300 120 250 200 250 C280 250 340 300 340 400Z" fill="#4f6d82"/>
+  </g>
+</svg>

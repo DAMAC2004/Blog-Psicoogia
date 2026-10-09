@@ -1,0 +1,26 @@
+[
+  {
+    "id": "laura-mendez",
+    "nombre": "Lic. Laura Méndez Ortiz",
+    "grado": "Licenciatura en Psicología",
+    "especialidades": ["Estrés y ansiedad", "Terapia cognitivo-conductual", "Autoestima"],
+    "imagen": "psicologos/psicologa-1.svg",
+    "activo": true
+  },
+  {
+    "id": "andres-ruiz",
+    "nombre": "Mtro. Andrés Ruiz Castillo",
+    "grado": "Maestría en Psicología Clínica",
+    "especialidades": ["Terapia de pareja", "Duelo", "Terapia sistémica"],
+    "imagen": "psicologos/psicologo-2.svg",
+    "activo": true
+  },
+  {
+    "id": "sofia-herrera",
+    "nombre": "Lic. Sofía Herrera Pérez",
+    "grado": "Licenciatura en Psicología Educativa",
+    "especialidades": ["Orientación vocacional", "Hábitos de estudio", "Adolescentes"],
+    "imagen": "psicologos/psicologa-3.svg",
+    "activo": true
+  }
+]
