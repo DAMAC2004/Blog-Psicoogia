@@ -7,8 +7,8 @@
 | 1 | Contador de visitas por entrada | No implementado (existe el marcador en el código) |
 | 2 | Página pública `/estadisticas` | No implementado |
 | 3 | Constructor visual de entradas por bloques | No implementado |
-| 4 | Formulario de contacto y datos reales | No implementado |
-| 5 | Contenido pendiente (videos e imágenes reales) | Pendiente |
+| 4 | Formulario de contacto | No implementado (los datos reales de contacto ya están hechos) |
+| 5 | Contenido pendiente (videos, imágenes y equipo reales) | Pendiente |
 | 6 | SEO y vistas previas al compartir | No implementado |
 
 ---
@@ -67,9 +67,11 @@
 
 **Dependencias:** Netlify Functions, token de GitHub con permisos al repositorio, proveedor de autenticación.
 
-## 4. Formulario de contacto y datos reales
+## 4. Formulario de contacto
 
-**Estado:** no implementado. Hoy `/contacto` solo muestra el correo.
+**Estado:** no implementado. Hoy `/contacto` muestra el correo y los teléfonos.
+
+- [x] **Hecho:** datos reales de contacto en `src/config/site.js` (`email` y `phones`), visibles en el pie y en `/contacto`.
 
 **Objetivo:** recibir mensajes sin exponer el correo y sin servidor propio.
 
@@ -77,7 +79,7 @@
 
 - Formulario en `src/pages/Contact.jsx` con **Netlify Forms** (atributo `data-netlify="true"` y un formulario oculto en `index.html` para que Netlify lo detecte al compilar, porque el sitio es una SPA). Campos: nombre, correo, mensaje y un campo trampa (*honeypot*) contra spam.
 - Mantener el aviso de que el canal no es para emergencias junto al formulario.
-- Completar en `src/config/site.js` los datos marcados `PENDIENTE`: `email` real y la lista `social`.
+- Completar en `src/config/site.js` la lista `social` (sigue marcada `PENDIENTE`).
 
 **Dependencias:** ninguna externa (Netlify Forms viene incluido en Netlify).
 
@@ -89,6 +91,7 @@
   - `src/posts/ir-al-psicologo-es-para-locos/index.md`
   - `src/posts/autocuidado-cotidiano/index.md`
 - **Imágenes:** sustituir las ilustraciones SVG provisionales (`portada.svg`, `ilustracion-*.svg`) por imágenes reales, siguiendo las recomendaciones de [02 · Crear entradas](./02-crear-entradas.md#4-agregar-la-portada-y-las-imágenes), y actualizar `coverImage` y las rutas del `.md` si cambia la extensión.
+- **Equipo de psicología:** las 3 fichas de `src/data/psicologos.json` (Laura Méndez, Andrés Ruiz y Sofía Herrera) y sus avatares de `src/assets/psicologos/` son **ficticios**, solo para pruebas. Reemplazarlos por los datos y fotos del equipo real siguiendo [08 · Equipo](./08-equipo.md).
 
 ## 6. SEO y vistas previas al compartir
 

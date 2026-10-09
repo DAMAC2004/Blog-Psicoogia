@@ -1,6 +1,6 @@
 # Documentación técnica
 
-Documentación para las personas que mantienen el blog. Esta carpeta **no forma parte del sitio**: no se importa desde el código ni se publica (Vite solo procesa `src/` y `public/`).
+Documentación para las personas que mantienen el Psicoblog. Esta carpeta **no forma parte del sitio**: no se importa desde el código ni se publica (Vite solo procesa `src/` y `public/`).
 
 ## Índice
 
@@ -13,10 +13,12 @@ Documentación para las personas que mantienen el blog. Esta carpeta **no forma 
 | [05 · Componentes y estilos](./05-componentes-y-estilos.md) | Páginas, componentes y sus props, sistema de temas, archivos CSS y `site.js`. |
 | [06 · Despliegue](./06-despliegue.md) | Comandos, configuración de Netlify, `public/_redirects` y flujo de publicación. |
 | [07 · Hoja de ruta](./07-hoja-de-ruta.md) | Pendientes y funciones futuras (no implementadas). |
+| [08 · Equipo](./08-equipo.md) | Guía, para personas no técnicas, para agregar, editar u ocultar fichas del equipo de psicología. |
 
 ## Por dónde empezar
 
 - **Vas a escribir un artículo:** lee [02](./02-crear-entradas.md) y [03](./03-bloques-de-escritura.md).
+- **Vas a actualizar el equipo de psicología:** lee [08](./08-equipo.md).
 - **Vas a cambiar el código:** lee [01](./01-arquitectura.md) y después el documento del área que vas a tocar.
 
 ## Cómo mantener esta documentación

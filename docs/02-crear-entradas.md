@@ -30,7 +30,7 @@ El `index.md` empieza con un encabezado entre dos líneas `---`. Se llama *front
 title: "Título de la entrada"
 date: "2026-10-01"
 author: "Nombre de quien publica"
-tags: ["Salud mental", "Ansiedad"]
+tags: ["Salud mental", "Estrés y Ansiedad"]
 summary: "Resumen corto que aparece en la tarjeta del listado."
 coverImage: "./portada.jpg"
 ---
@@ -41,7 +41,7 @@ coverImage: "./portada.jpg"
 | `title` | Sí | Texto entre comillas | Se muestra el `id` como título. |
 | `date` | Sí | `"AAAA-MM-DD"` (año, mes y día con dos cifras) | La entrada queda al final del listado y sin fecha. |
 | `author` | No | Texto entre comillas | Aparece "Redacción". |
-| `tags` | No | Lista entre corchetes: `["Tema 1", "Tema 2"]` | La entrada no aparece en ningún filtro de temas. |
+| `tags` | No | Lista entre corchetes: `["Tema 1", "Tema 2"]`, solo con etiquetas del [catálogo oficial](#catálogo-oficial-de-etiquetas) | La entrada no aparece en ningún filtro de temas. |
 | `summary` | No | Texto de **máximo 160 caracteres** | La tarjeta no muestra resumen. |
 | `coverImage` | Sí | Ruta a la imagen: `"./portada.jpg"` | La tarjeta y la entrada se muestran sin portada. |
 | `healthNotice` | No | `false` | Si escribes `healthNotice: false`, esa entrada **no** muestra el aviso de salud del final. Si no lo escribes, el aviso aparece solo. |
@@ -49,8 +49,35 @@ coverImage: "./portada.jpg"
 Consejos:
 
 - Usa siempre comillas dobles `"` en los textos.
-- Los temas (`tags`) se escriben siempre igual en todas las entradas: `"Salud mental"` y `"salud mental"` serían dos filtros distintos.
+- Los temas (`tags`) se escriben siempre igual en todas las entradas: `"Salud mental"` y `"salud mental"` serían dos filtros distintos. Copia el nombre exacto del catálogo de abajo.
 - El listado se ordena por `date`, de la más reciente a la más antigua.
+
+### Catálogo oficial de etiquetas
+
+Las etiquetas válidas están en la lista `tags` de `src/config/site.js`. Escríbelas **exactamente** así (mayúsculas y acentos incluidos):
+
+| Etiqueta | Para artículos sobre… |
+| :--- | :--- |
+| `Aprendizaje` | Estudio, memoria y formas de aprender. *Hoy ninguna entrada la usa.* |
+| `Bienestar` | Autocuidado y salud emocional en el día a día. |
+| `Comunicación` | Cómo expresarnos y escuchar. |
+| `Estigma` | Prejuicios alrededor de la salud mental. |
+| `Estrés y Ansiedad` | Estrés, ansiedad, preocupación y rumiación. |
+| `Hábitos` | Rutinas y pequeños cambios cotidianos. |
+| `Relaciones de pareja` | Vínculos, límites y convivencia en pareja. |
+| `Salud mental` | Temas generales de salud mental. |
+
+El filtro del home muestra **solo las etiquetas que usa al menos una entrada**: `Aprendizaje` aparecerá en cuanto un artículo la tenga.
+
+**Agregar una etiqueta nueva:** añádela a la lista `tags` de `src/config/site.js` (en orden alfabético), agrega su fila a esta tabla y haz ambos cambios en el mismo commit.
+
+Si una entrada usa una etiqueta que **no** está en el catálogo, el sitio funciona igual, pero con `npm run dev` la consola del navegador (F12 → Consola) muestra un aviso como:
+
+```text
+[etiquetas] La entrada "mi-entrada" usa una etiqueta fuera del catálogo: "Ansiedad"
+```
+
+Corrige el nombre en el frontmatter o agrega la etiqueta al catálogo.
 
 ## 3. Escribir el cuerpo
 
@@ -172,6 +199,7 @@ Nunca se suben `node_modules/` ni `dist/` (ya están en `.gitignore`).
 - [ ] El `id` de la carpeta está en minúsculas y con guiones.
 - [ ] El frontmatter tiene `title`, `date` (`AAAA-MM-DD`) y `coverImage`.
 - [ ] El `summary` tiene 160 caracteres o menos.
+- [ ] Las etiquetas están en el catálogo oficial (no hay avisos `[etiquetas]` en la consola).
 - [ ] La portada existe en la carpeta con el mismo nombre que en `coverImage`.
 - [ ] Todas las imágenes cargan (no aparece "Imagen no encontrada").
 - [ ] Todas las imágenes tienen un `alt` descriptivo.

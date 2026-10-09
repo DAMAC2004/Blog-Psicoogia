@@ -6,10 +6,10 @@ Están en `src/pages/`. Ninguna recibe props: leen lo que necesitan de la URL y 
 
 | Página | Ruta | Responsabilidad |
 | :--- | :--- | :--- |
-| `Home` | `/home` | *Hero*, buscador, filtro por tema, listado paginado y enlace a "Sobre nosotros". Lee y escribe `?q`, `?tema` y `?pagina` con `useSearchParams`. Corrige con `replace` una `?pagina` inválida o fuera de rango. |
+| `Home` | `/home` | *Hero* con `SITE.blogName` (pestaña: `Psicoblog · Mente Abierta`), buscador, filtro por tema, listado paginado y enlace a "Sobre nosotros". Lee y escribe `?q`, `?tema` y `?pagina` con `useSearchParams`. Corrige con `replace` una `?pagina` inválida o fuera de rango. |
 | `PostDetail` | `/postdetail/:id` | Cabecera de la entrada (etiquetas, título, autor, fecha, tiempo de lectura), portada, `PostContent`, `HealthNotice` (si `post.healthNotice` es `true`) y enlaces "← Volver al blog". Si el `id` no existe muestra "Entrada no encontrada". Contiene el marcador `TODO fase contador`. |
-| `About` | `/sobre-nosotros` | Quiénes somos, qué encontrarás, valores en tarjetas, compromiso, texto de cierre con cita y botones a `/contacto` y `/home`. |
-| `Contact` | `/contacto` | Correo (`SITE.email`), redes (`SITE.social`, solo si hay elementos) y aviso de que el canal no es para emergencias, con `SITE.crisisLine` y el 911. |
+| `About` | `/sobre-nosotros` | Presentación centrada "Nuestro equipo de psicología" y una `PsychologistCard` por persona de `team` (`src/lib/team.js`; si está vacío no se dibuja la lista); después quiénes somos, qué encontrarás, valores en tarjetas, compromiso, texto de cierre con cita y botones a `/contacto` y `/home`. |
+| `Contact` | `/contacto` | Tarjetas de correo (`SITE.email`, botón "Escríbenos") y teléfono (`SITE.phones` como enlaces `tel:`), lado a lado en escritorio y apiladas en móvil; redes (`SITE.social`, solo si hay elementos) y aviso de que el canal no es para emergencias, con `SITE.crisisLine` y el 911. |
 
 ## Componentes
 
@@ -17,7 +17,10 @@ Están en `src/components/`.
 
 | Componente | Props | Responsabilidad |
 | :--- | :--- | :--- |
-| `Layout` | — | Cabecera con marca, navegación (`NavLink` a `/home`, `/sobre-nosotros`, `/contacto`) y `ThemeSwitcher`; `<Outlet />` para la página; pie con enlaces. Hace `window.scrollTo(0, 0)` cuando cambia `pathname` (no cuando solo cambian los parámetros `?`). |
+| `Layout` | — | Cabecera con marca (`PsiLogo` + `SITE.name`), navegación (`NavLink` a `/home`, `/sobre-nosotros`, `/contacto`) y `ThemeSwitcher`; `<Outlet />` para la página; pie en tres columnas (marca y lema · navegación · contacto con `SITE.phones` y `SITE.email`) y `© <año> · SITE.blogName`. En móvil las columnas se apilan. Hace `window.scrollTo(0, 0)` cuando cambia `pathname` (no cuando solo cambian los parámetros `?`). |
+| `PsiLogo` | `size` (26), `title` (`'Símbolo psique'`), `className` y cualquier otro atributo (por ejemplo `aria-hidden`) | Símbolo psique (Ψ) en SVG con `stroke="currentColor"`: toma el color del texto que lo rodea. En cabecera (26 px) y pie (20 px) lleva `aria-hidden="true"` porque el nombre del sitio ya está al lado. |
+| `PhoneIcon`, `MailIcon` | — | Íconos decorativos (16 px, `aria-hidden`) de `src/components/ContactIcons.jsx`, usados en el pie y en `/contacto`. |
+| `PsychologistCard` | `persona` (`{ nombre, grado, especialidades, imagenUrl }`) | Ficha del equipo: imagen circular a la izquierda (120 px; 80 px por debajo de 480 px) o iniciales si no hay `imagenUrl`; a la derecha nombre (`h3`), grado y especialidades como `.tag` en una `<ul aria-label="Especialidades">`. Ver [08 · Equipo](./08-equipo.md). |
 | `ThemeSwitcher` | — | `<select>` con los 4 temas. Aplica la clase del tema a `<body>` y la guarda en `localStorage`. |
 | `PostCard` | `post` | Tarjeta de una entrada en el listado: portada, etiquetas, título, resumen, autor y fecha. También exporta la función `initials(name)`, que usa `PostDetail`. |
 | `Pagination` | `currentPage`, `totalPages`, `onPageChange(page)` | Botones "← Anterior", números y "Siguiente →". No se dibuja si `totalPages <= 1`. Con más de 7 páginas muestra primera, última, actual y vecinas, con "…" en los huecos. |
@@ -42,7 +45,7 @@ Definidas en `src/assets/themes.css` y listadas en `THEMES` dentro de `src/compo
 
 ### Variables CSS
 
-Cada clase define el mismo conjunto de variables. **Todo color del sitio debe salir de estas variables**, nunca de un valor fijo.
+Cada clase define el mismo conjunto de variables. **Todo color del sitio debe salir de estas variables**, nunca de un valor fijo. Excepciones: `public/favicon.svg` (usa `#a65b32`, el `--link-color` de Relajado, porque la pestaña no conoce el tema) y las ilustraciones SVG de contenido.
 
 | Grupo | Variables | Uso |
 | :--- | :--- | :--- |
@@ -70,9 +73,9 @@ Se importan en `src/main.jsx` en este orden:
 | Archivo | Contenido |
 | :--- | :--- |
 | `src/assets/themes.css` | Las 4 clases de tema y estilos base que dependen de ellas: `body`, `h1`…`h5`, `p`, `a`, `button`/`.btn`, `.tag`, `code`, `blockquote`, `.card`/`.media-block`. |
-| `src/assets/global.css` | Maquetación general: `.container`, `.container.narrow`, cabecera, *hero*, buscador, `.chip`, listado (`.post-row`), `.post-meta`, `.avatar`, paginación (`.pagination`, `.pagination-summary`), pie y ajustes móviles. |
+| `src/assets/global.css` | Maquetación general: `.container`, `.container.narrow`, cabecera, *hero*, buscador, `.chip`, listado (`.post-row`), `.post-meta`, `.avatar`, paginación (`.pagination`, `.pagination-summary`), pie (`.footer-inner`, `.footer-brand`, `.footer-title`, `.contact-links`, `.contact-icon`, `.footer-copy`) y ajustes móviles. |
 | `src/assets/post.css` | Vista de entrada: `.post-page`, `.post-header`, `.post-cover`, `.post-body` (títulos, listas, tablas, `hr`), `.post-figure`, `.image-missing`, `.media-block`, `.youtube`, `.health-notice`. |
-| `src/assets/pages.css` | Páginas propias: `.page-content`, `.values-grid`, `.value-card`, `.about-closing`, `.page-actions`, `.btn-secondary`, `.contact-card`, `.crisis-notice`, `.home-about`. |
+| `src/assets/pages.css` | Páginas propias: `.page-content`, `.values-grid`, `.value-card`, `.about-closing`, `.page-actions`, `.btn-secondary`, `.contact-card`, `.crisis-notice`, `.home-about`, equipo (`.team-intro`, `.team-list`, `.psychologist-card`, `.psychologist-photo`) y `.contact-grid`. |
 
 Punto de corte móvil principal: `720px`. La paginación oculta los textos "Anterior" y "Siguiente" por debajo de `480px`.
 
@@ -80,9 +83,12 @@ Punto de corte móvil principal: `720px`. La paginación oculta los textos "Ante
 
 | Campo | Uso |
 | :--- | :--- |
-| `name` | Nombre del sitio en cabecera, pie, títulos de pestaña y "Sobre nosotros". |
+| `name` | Marca "Mente Abierta" en cabecera, pie, títulos de pestaña y "Sobre nosotros". |
+| `blogName` | Nombre del blog, `'Psicoblog'`: título del *hero* del home, título de su pestaña y `©` del pie. |
 | `tagline` | Lema del pie. |
-| `email` | Correo de la página de contacto (**PENDIENTE**: hoy es `contacto@ejemplo.com`). |
+| `email` | Correo real (`psicologia@regionsierra.tecnm.mx`), en el pie y en `/contacto` como enlace `mailto:`. |
+| `phones` | Lista de `{ display, tel }`: `display` es el texto visible y `tel` el número del enlace `tel:` (con `+52`). Se muestran en el pie y en `/contacto`. |
 | `social` | Lista de `{ label, url }`. Vacía = no se muestra la tarjeta de redes (**PENDIENTE**). |
 | `postsPerPage` | Entradas por página en el listado (10). |
+| `tags` | Catálogo oficial de etiquetas. En desarrollo, `posts.js` avisa en consola si una entrada usa otra. Ver [02](./02-crear-entradas.md#catálogo-oficial-de-etiquetas). |
 | `crisisLine` | `{ name, phone, hours }` de la línea de apoyo; lo usan `HealthNotice` y `Contact`. |

@@ -1,4 +1,4 @@
-# Blog de psicología — Mente Abierta
+# Psicoblog — Mente Abierta
 
 Blog estático de psicología hecho con React + Vite. Las entradas son archivos Markdown dentro de `src/posts/<id>/index.md` y se publican en Netlify.
 

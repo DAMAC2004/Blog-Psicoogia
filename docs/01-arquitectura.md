@@ -2,7 +2,7 @@
 
 ## Visión general
 
-Blog de psicología estático: no hay servidor ni base de datos. Las entradas son archivos Markdown dentro de `src/posts/`, y **Vite las incorpora al sitio en el momento de compilar**. El resultado de `npm run build` es una carpeta `dist/` con HTML, CSS, JavaScript e imágenes que Netlify sirve tal cual.
+El Psicoblog es un blog de psicología estático: no hay servidor ni base de datos. Las entradas son archivos Markdown dentro de `src/posts/`, y **Vite las incorpora al sitio en el momento de compilar**. El resultado de `npm run build` es una carpeta `dist/` con HTML, CSS, JavaScript e imágenes que Netlify sirve tal cual.
 
 ## Stack
 
@@ -23,19 +23,26 @@ No hay más dependencias de ejecución. El resto (lector de frontmatter, divisor
 blog-psicologia/
 ├── docs/                      Documentación para quienes mantienen el sitio (no se publica)
 ├── public/
-│   └── _redirects             Regla de Netlify para que las rutas de la SPA no den 404
+│   ├── _redirects             Regla de Netlify para que las rutas de la SPA no den 404
+│   └── favicon.svg            Ícono de la pestaña: símbolo psique (Ψ) con color fijo
 ├── src/
 │   ├── main.jsx               Punto de entrada: monta <App> dentro de <BrowserRouter> e importa los CSS
 │   ├── App.jsx                Tabla de rutas
 │   ├── config/
-│   │   └── site.js            Datos del sitio: nombre, correo, redes, entradas por página, línea de crisis
+│   │   └── site.js            Datos del sitio: nombre, Psicoblog, correo, teléfonos, redes, etiquetas, línea de crisis…
+│   ├── data/
+│   │   └── psicologos.json    Fichas del equipo de psicología (ver docs/08)
 │   ├── lib/
 │   │   ├── frontmatter.js     parseFrontmatter(): lector propio del encabezado YAML
 │   │   ├── posts.js           Carga todas las entradas e imágenes; expone posts, getPost, formatDate
 │   │   ├── blocks.js          splitBlocks(): divide el cuerpo en segmentos (markdown, media, youtube)
+│   │   ├── team.js            Lee psicologos.json, oculta inactivos y resuelve las imágenes; expone team
 │   │   └── useDocumentTitle.js  Hook que pone "<Página> · <nombre del sitio>" en la pestaña
 │   ├── components/
-│   │   ├── Layout.jsx         Cabecera, navegación, pie y scroll arriba al cambiar de ruta
+│   │   ├── Layout.jsx         Cabecera, navegación, pie con contacto y scroll arriba al cambiar de ruta
+│   │   ├── PsiLogo.jsx        Logo: símbolo psique (Ψ) en SVG con currentColor
+│   │   ├── ContactIcons.jsx   Íconos de teléfono y sobre (PhoneIcon, MailIcon)
+│   │   ├── PsychologistCard.jsx  Ficha de una persona del equipo
 │   │   ├── ThemeSwitcher.jsx  Selector de los 4 temas de color
 │   │   ├── PostCard.jsx       Tarjeta de una entrada en el listado
 │   │   ├── Pagination.jsx     Controles de paginación
@@ -53,7 +60,8 @@ blog-psicologia/
 │   │   ├── themes.css         Variables de color de los 4 temas y estilos base
 │   │   ├── global.css         Maquetación general, cabecera, listado, paginación, pie
 │   │   ├── post.css           Vista de entrada y bloques del intérprete
-│   │   └── pages.css          Páginas Sobre nosotros y Contacto
+│   │   ├── pages.css          Páginas Sobre nosotros (incluido el equipo) y Contacto
+│   │   └── psicologos/        Fotos o ilustraciones del equipo (psicologa-1.svg…)
 │   └── posts/
 │       └── <id>/              Una carpeta por entrada; <id> es la parte final de la URL
 │           ├── index.md       Frontmatter + cuerpo
@@ -73,7 +81,7 @@ Definidas en `src/App.jsx`. Todas se dibujan dentro de `Layout`.
 | `/` | `Navigate` → `/home` | Redirección. |
 | `/home` | `src/pages/Home.jsx` | Listado. Acepta `?q=`, `?tema=` y `?pagina=`. |
 | `/postdetail/:id` | `src/pages/PostDetail.jsx` | Entrada cuya carpeta es `src/posts/<id>/`. |
-| `/sobre-nosotros` | `src/pages/About.jsx` | Página "Sobre nosotros". |
+| `/sobre-nosotros` | `src/pages/About.jsx` | Página "Sobre nosotros" con el equipo de psicología. |
 | `/contacto` | `src/pages/Contact.jsx` | Página "Contacto". |
 | `*` | `Navigate` → `/home` | Cualquier otra ruta vuelve al listado. |
 
@@ -106,7 +114,13 @@ flowchart TD
   DETAIL --> HN[HealthNotice.jsx]
   SITE[config/site.js] --> HOME
   SITE --> HN
+  TEAMJSON["src/data/psicologos.json"] --> TEAM[team.js]
+  TEAMIMG["src/assets/psicologos/"] -->|"import.meta.glob ?url"| TEAM
+  TEAM --> ABOUT[About.jsx]
+  ABOUT --> PCARD[PsychologistCard.jsx]
 ```
+
+El equipo de "Sobre nosotros" sigue el mismo principio: `src/lib/team.js` importa `src/data/psicologos.json` y, con `import.meta.glob('../assets/psicologos/*.{jpg,jpeg,png,webp,svg}')`, convierte la ruta escrita en el JSON en la URL final de la imagen. Ver [08 · Equipo](./08-equipo.md).
 
 El detalle del intérprete está en [04 · Intérprete y renderizado](./04-interprete-y-renderizado.md).
 
@@ -130,4 +144,4 @@ La página, el tema y la búsqueda del listado viven en los parámetros `?pagina
 
 ### Configuración central en `site.js`
 
-Nombre, lema, correo, redes, entradas por página y datos de la línea de crisis están en `src/config/site.js`. Cambiar cualquiera de ellos no requiere tocar componentes, y el aviso de salud de todas las entradas se actualiza desde un solo lugar.
+Nombre, nombre del blog, lema, correo, teléfonos, redes, entradas por página, catálogo de etiquetas y datos de la línea de crisis están en `src/config/site.js`. Cambiar cualquiera de ellos no requiere tocar componentes, y el aviso de salud de todas las entradas se actualiza desde un solo lugar.
