@@ -26,7 +26,10 @@
 }
 .btn-secondary:hover { background: var(--tag-bg); color: var(--link-hover); }
 
-.contact-card { border-radius: 14px; padding: 24px; }
+.contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.contact-card { border-radius: 14px; padding: 24px; min-width: 0; }
+.contact-card .contact-links { margin-bottom: 16px; }
+.contact-card .contact-links a { color: var(--link-color); }
 .contact-card h2 { font-size: 1.35rem; }
 .contact-card .btn { margin-top: 4px; }
 .social-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 20px; }
@@ -46,4 +49,5 @@
 @media (max-width: 720px) {
   .page-content { padding-top: 32px; gap: 32px; }
   .values-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
 }

@@ -3,7 +3,11 @@ export const SITE = {
   name: 'Mente Abierta',
   blogName: 'Psicoblog',
   tagline: 'Un espacio de confianza y libre de juicios.',
-  email: 'contacto@ejemplo.com',        // PENDIENTE: correo real
+  email: 'psicologia@regionsierra.tecnm.mx',
+  phones: [
+    { display: '932 406 0164', tel: '+529324060164' },
+    { display: '932 406 0169', tel: '+529324060169' },
+  ],
   social: [
     // PENDIENTE: enlaces reales. Si la lista está vacía, no se muestra la sección.
     // { label: 'Instagram', url: 'https://instagram.com/...' },

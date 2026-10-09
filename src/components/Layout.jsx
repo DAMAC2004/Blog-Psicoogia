@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher.jsx';
 import PsiLogo from './PsiLogo.jsx';
+import { MailIcon, PhoneIcon } from './ContactIcons.jsx';
 import { SITE } from '../config/site.js';
 
 const NAV_LINKS = [
@@ -47,9 +48,23 @@ export default function Layout() {
             <p className="muted">{SITE.tagline}</p>
           </div>
           <nav className="footer-nav" aria-label="Pie de página">
+            <p className="footer-title">Navegación</p>
             {NAV_LINKS.map((link) => <Link key={link.to} to={link.to}>{link.label}</Link>)}
           </nav>
-          <p className="muted small">© {new Date().getFullYear()} · {SITE.blogName}</p>
+          <div className="footer-contact">
+            <p className="footer-title">Contacto</p>
+            <ul className="contact-links">
+              {SITE.phones.map((phone) => (
+                <li key={phone.tel}>
+                  <a href={`tel:${phone.tel}`}><PhoneIcon />{phone.display}</a>
+                </li>
+              ))}
+              <li>
+                <a href={`mailto:${SITE.email}`}><MailIcon />{SITE.email}</a>
+              </li>
+            </ul>
+          </div>
+          <p className="footer-copy muted small">© {new Date().getFullYear()} · {SITE.blogName}</p>
         </div>
       </footer>
     </div>

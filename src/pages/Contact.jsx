@@ -1,3 +1,4 @@
+import { MailIcon, PhoneIcon } from '../components/ContactIcons.jsx';
 import { SITE } from '../config/site.js';
 import { useDocumentTitle } from '../lib/useDocumentTitle.js';
 
@@ -17,12 +18,28 @@ export default function Contact() {
       </section>
 
       <div className="container narrow page-content">
-        <section className="card contact-card">
-          <h2>Correo electrónico</h2>
-          <p>Escríbenos y te responderemos en cuanto podamos.</p>
-          <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
-          <a href={`mailto:${SITE.email}`} className="btn">Escríbenos</a>
-        </section>
+        <div className="contact-grid">
+          <section className="card contact-card">
+            <h2>Correo electrónico</h2>
+            <p>Escríbenos y te responderemos en cuanto podamos.</p>
+            <ul className="contact-links">
+              <li><a href={`mailto:${SITE.email}`}><MailIcon />{SITE.email}</a></li>
+            </ul>
+            <a href={`mailto:${SITE.email}`} className="btn">Escríbenos</a>
+          </section>
+
+          <section className="card contact-card">
+            <h2>Teléfono</h2>
+            <p>Llámanos a cualquiera de estos números.</p>
+            <ul className="contact-links">
+              {SITE.phones.map((phone) => (
+                <li key={phone.tel}>
+                  <a href={`tel:${phone.tel}`}><PhoneIcon />{phone.display}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
 
         {SITE.social.length > 0 && (
           <section className="card contact-card">
