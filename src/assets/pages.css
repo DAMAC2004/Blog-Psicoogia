@@ -44,6 +44,7 @@
 .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .contact-card { border-radius: 14px; padding: 24px; min-width: 0; }
 .contact-card .contact-links { margin-bottom: 16px; }
+.contact-card .contact-links:last-child { margin-bottom: 0; }
 .contact-card .contact-links a { color: var(--link-color); }
 .contact-card h2 { font-size: 1.35rem; }
 .contact-card .btn { margin-top: 4px; }

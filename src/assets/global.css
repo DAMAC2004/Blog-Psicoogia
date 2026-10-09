@@ -118,7 +118,7 @@ h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; line-height: 1.2; margin: 
 
 .site-footer { border-top: 1px solid var(--border-color); background: var(--bg-secondary); padding: 28px 0; }
 /* Tres columnas: marca y lema | navegación | contacto. El © ocupa toda la fila inferior. */
-.footer-inner { display: grid; grid-template-columns: 1.2fr 1fr 1.2fr; gap: 24px 32px; align-items: start; }
+.footer-inner { display: grid; grid-template-columns: minmax(0, 1fr) auto max-content; gap: 24px 48px; align-items: start; }
 .footer-inner p { margin: 4px 0; }
 .footer-brand { display: flex; align-items: center; gap: 8px; }
 .footer-title { font-weight: 600; color: var(--heading-2); margin-bottom: 8px !important; }
